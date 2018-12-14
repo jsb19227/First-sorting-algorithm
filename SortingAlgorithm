@@ -1,0 +1,59 @@
+package sortingAlgorthim;
+
+public class SortingAlgorthim 
+{
+	//selection sort
+	public static void switchArray(int num1, int num2, int[] arr)
+	{
+		int temporary = arr[num1];
+		arr[num1] = arr[num2];
+		arr[num2] = temporary;
+	}
+	
+	public static void printArray(int[] arr)
+	{
+		for(int i = 0; i < arr.length; i++)
+		{
+			if(i % 20 == 0)
+			{
+				System.out.print("\n" +arr[i] + "\t");
+			}
+			else 
+			{
+				System.out.print(arr[i] + " \t");
+			}
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		int[] arr = new int[100];
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			arr[i] = 1 + (int)(Math.random()*99);
+		}
+		
+		System.out.println("Unsorted Numbers: ");
+		
+		printArray(arr);
+		
+		System.out.println();
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			for(int c = i + 1; c < arr.length; c++)
+			{
+				if(arr[c] < arr[i])
+				{
+					switchArray(i,c, arr);
+				}
+			}
+		}
+		System.out.println();
+		
+		System.out.println("Sorted Numbers: ");
+		
+		printArray(arr);
+	}
+}
